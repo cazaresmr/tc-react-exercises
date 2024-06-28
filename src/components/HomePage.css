@@ -1,0 +1,36 @@
+/* src/components/HomePage.css */
+body {
+  margin: 0 40px;
+  font-family: Arial, sans-serif;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+form {
+  margin: 20px 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+}
+
+input {
+  padding: 5px;
+  margin: 10px;
+}
+
+button {
+  padding: 5px 10px;
+  border: 1px solid white;
+}
