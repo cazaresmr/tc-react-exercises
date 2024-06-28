@@ -2,23 +2,23 @@ import { useState } from "react";
 import "./HomePage.css";
 
 function HomePage() {
-  const [movies, setMovies] = useState([]); // Initialize to an empty array
-  const [newMovie, setNewMovie] = useState(""); // State for input field
+  const [movies, setMovies] = useState([]);
+  const [newMovie, setNewMovie] = useState("");
 
   const handleInputChange = (e) => {
-    setNewMovie(e.target.value); // Update state with input field's value
+    setNewMovie(e.target.value);
   };
 
   const handleFormSubmit = (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault();
     if (newMovie.trim()) {
-      setMovies([...movies, newMovie.trim()]); // Update movies state with new movie
-      setNewMovie(""); // Clear input field after adding movie
+      setMovies([...movies, newMovie.trim()]);
+      setNewMovie("");
     }
   };
 
   const handleRemoveMovie = (index) => {
-    setMovies(movies.filter((_, i) => i !== index)); // Remove movie at the specified index
+    setMovies(movies.filter((_, i) => i !== index));
   };
 
   return (
@@ -26,15 +26,14 @@ function HomePage() {
       <h1>Movie Watchlist</h1>
       <form onSubmit={handleFormSubmit}>
         {" "}
-        {/* Handle form submission */}
         <div>
           <label htmlFor='movieInput'>Add a Movie</label>
           <input
             type='text'
             id='movieInput'
             name='movieInput'
-            value={newMovie} // Sync input value with state
-            onChange={handleInputChange} // Handle input change
+            value={newMovie}
+            onChange={handleInputChange}
           />
           <button type='submit'>Add Movie</button>
         </div>
@@ -46,7 +45,6 @@ function HomePage() {
             <button onClick={() => handleRemoveMovie(index)}>
               Remove
             </button>{" "}
-            {/* Button to remove movie */}
           </li>
         ))}
       </ul>
