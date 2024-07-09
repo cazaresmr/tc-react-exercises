@@ -1,13 +1,39 @@
-// src/App.jsx or src/App.js
-
 import "./App.css";
-import FilmsPage from "./components/FilmsPage";
+import { BrowserRouter, NavLink, Routes, Route } from "react-router-dom";
+import { HomePage, FilmsPage, SingleFilmPage } from "./pages";
 
 function App() {
   return (
-    <div className='App'>
-      <FilmsPage />
-    </div>
+    <BrowserRouter>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <NavLink
+                to='/'
+                exact
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to='/films'
+                className={({ isActive }) => (isActive ? "active" : "")}
+              >
+                Films
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/films' element={<FilmsPage />} />
+          <Route path='/film/:id' element={<SingleFilmPage />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
